@@ -27,9 +27,9 @@ export function CourseDetailPage() {
       subtitle: "Master Modern Web Development with React",
       description:
         "Learn React from scratch and build production-ready web applications. This comprehensive bootcamp covers everything from React fundamentals to advance and best practices.",
-      startDate: "April 20, 2026",
+      startDate: "March 23, 2026",
       duration: "5 days",
-      price: "$299",
+      price: "₹299",
       schedule: "7:00 PM - 8:30 PM IST",
       level: "Beginner to Intermediate",
       image:
@@ -245,7 +245,7 @@ export function CourseDetailPage() {
               </div>
 
               <a
-                href="https://docs.google.com/forms/d/e/GOOGLE_FORM_URL"
+                href="https://chat.whatsapp.com/BRWxWWkhhrp1Q9RRw7PyNW"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-lg px-8 py-4 text-lg text-white transition-all hover:opacity-90 w-full sm:w-auto"
@@ -500,7 +500,7 @@ export function CourseDetailPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://docs.google.com/forms/d/e/GOOGLE_FORM_URL"
+                href="https://chat.whatsapp.com/BRWxWWkhhrp1Q9RRw7PyNW"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-lg px-8 py-4 text-lg text-white transition-all hover:opacity-90"
