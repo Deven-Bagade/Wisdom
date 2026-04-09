@@ -1,6 +1,7 @@
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 import { CourseCard } from "../components/course-card";
+import {LoginPage} from "./login-page";
 import {
   Code,
   Users,
@@ -148,43 +149,15 @@ export function HomePage() {
                   <MessageCircle size={20} />
                   Contact Us
                 </a>
+                <a
+  href="/login"
+  className="inline-flex items-center justify-center rounded-lg px-6 py-3 bg-black text-white"
+>
+  Login
+</a>
               </div>
 
-              {/* <div className="flex items-center gap-8 pt-4">
-                <div>
-                  <div
-                    className="text-3xl font-bold"
-                    style={{ color: "var(--brand)" }}
-                  >
-                    100+
-                  </div>
-                  <div className="text-sm text-gray-600">
-                    Students Enrolled
-                  </div>
-                </div>
-                <div>
-                  <div
-                    className="text-3xl font-bold"
-                    style={{ color: "var(--brand)" }}
-                  >
-                    3+
-                  </div>
-                  <div className="text-sm text-gray-600">
-                    Expert Instructors
-                  </div>
-                </div>
-                <div>
-                  <div
-                    className="text-3xl font-bold"
-                    style={{ color: "var(--brand)" }}
-                  >
-                    95%
-                  </div>
-                  <div className="text-sm text-gray-600">
-                    Success Rate
-                  </div>
-                </div>
-              </div> */}
+        
             </div>
 
             <div className="relative">
@@ -270,71 +243,6 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* Instructor Section */}
-      {/* <section className="py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold sm:text-4xl mb-4">
-              Meet Your Instructor
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Learn from experienced professionals who are
-              passionate about teaching.
-            </p>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div className="md:flex">
-                <div className="md:w-1/3">
-                  <ImageWithFallback
-                    src="https://images.unsplash.com/flagged/photo-1576667815744-ca5c641c5ef5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5b3VuZyUyMHByb2Zlc3Npb25hbCUyMGRldmVsb3BlciUyMHBvcnRyYWl0fGVufDF8fHx8MTc3MzczNTIzMHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                    alt="Instructor"
-                    className="h-64 w-full object-cover md:h-full"
-                  />
-                </div>
-                <div className="p-8 md:w-2/3">
-                  <h3 className="text-2xl font-bold mb-2">
-                    John Doe
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    Full Stack Developer & Tech Educator
-                  </p>
-                  <p className="text-gray-700 mb-6">
-                    With over 5 years of experience in web
-                    development and a passion for teaching, John
-                    has helped hundreds of students launch their
-                    careers in tech. He specializes in React,
-                    Node.js, and modern web technologies.
-                  </p>
-                  <div className="flex gap-4">
-                    <a
-                      href="https://linkedin.com/in/johndoe"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-medium transition-colors hover:opacity-80"
-                      style={{ color: "var(--brand)" }}
-                    >
-                      <Linkedin size={18} />
-                      LinkedIn
-                    </a>
-                    <a
-                      href="https://github.com/johndoe"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-medium transition-colors hover:opacity-80"
-                      style={{ color: "var(--brand)" }}
-                    >
-                      <Github size={18} />
-                      GitHub
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* About Wisdom */}
       <section id="about" className="py-20 sm:py-24 bg-gray-50">
@@ -393,43 +301,7 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      {/* <section className="py-20 sm:py-24 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold sm:text-4xl mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Find answers to common questions about our courses
-              and learning experience.
-            </p>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            <Accordion
-              type="single"
-              collapsible
-              className="space-y-4"
-            >
-              {faqs.map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  value={`item-${index}`}
-                  className="bg-white rounded-lg px-6 border"
-                >
-                  <AccordionTrigger className="text-left hover:no-underline">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-gray-600">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </div>
-      </section> */}
+ 
 
       {/* Contact Section */}
       <section id="contact" className="py-20 sm:py-24">
