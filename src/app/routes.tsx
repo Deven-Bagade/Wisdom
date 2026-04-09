@@ -6,15 +6,14 @@ import { LoginPage } from "./pages/login-page";
 export const router = createBrowserRouter([
   {
     path: "/",
-    Component: HomePage,
+    element: <HomePage />,
   },
   {
     path: "/course/:courseId",
-    Component: CourseDetailPage,
+    element: <CourseDetailPage />,
   },
-{
-  path: "/login",
-  Component: LoginPage,
-},
-
+  {
+    path: "/login",
+    element: <LoginPage />,
+  },
 ]);
