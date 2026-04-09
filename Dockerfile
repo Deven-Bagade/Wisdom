@@ -1,14 +1,14 @@
-# Use lightweight nginx image
 FROM nginx:alpine
 
-# Remove default nginx static files
-RUN rm -rf /usr/share/nginx/html/*
+# Remove default config
+RUN rm /etc/nginx/conf.d/default.conf
 
-# Copy your Vite build output
+# Copy your custom nginx config
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copy React build
 COPY dist /usr/share/nginx/html
-
 
 EXPOSE 80
 
-# Start nginx
 CMD ["nginx", "-g", "daemon off;"]

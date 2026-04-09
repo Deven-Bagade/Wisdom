@@ -2,47 +2,53 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.time.Duration;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class LoginTest {
 
     @Test
     public void testLogin() {
 
-WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().setup();
 
-ChromeOptions options = new ChromeOptions();
-options.addArguments("--headless=new");
-options.addArguments("--no-sandbox");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
 
-WebDriver driver = new ChromeDriver(options);
+        WebDriver driver = new ChromeDriver(options);
 
-driver.get("http://localhost:8083/login");
+        driver.get("http://localhost:8083/login");
 
-// ✅ WAIT for React to load
-WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
-wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
+        // 🔥 DEBUG: see what page is actually loaded
+        System.out.println("URL: " + driver.getCurrentUrl());
 
-driver.findElement(By.id("username")).sendKeys("student");
-driver.findElement(By.id("password")).sendKeys("Password123");
-driver.findElement(By.id("submit")).click();
+        // ✅ WAIT until page fully loads
+        wait.until(webDriver ->
+            ((org.openqa.selenium.JavascriptExecutor) webDriver)
+                .executeScript("return document.readyState").equals("complete")
+        );
 
-// ✅ HANDLE ALERT (IMPORTANT)
-wait.until(ExpectedConditions.alertIsPresent());
+        // ✅ WAIT for React to render login input
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("username")));
 
-String alertText = driver.switchTo().alert().getText();
+        driver.findElement(By.id("username")).sendKeys("student");
+        driver.findElement(By.id("password")).sendKeys("Password123");
+        driver.findElement(By.id("submit")).click();
 
-// ✅ ASSERT
-Assert.assertTrue(alertText.contains("Login Successful"));
+        wait.until(ExpectedConditions.alertIsPresent());
 
-driver.switchTo().alert().accept();
+        String alertText = driver.switchTo().alert().getText();
+        Assert.assertTrue(alertText.contains("Login Successful"));
 
-driver.quit();
+        driver.switchTo().alert().accept();
+
+        driver.quit();
     }
 }
